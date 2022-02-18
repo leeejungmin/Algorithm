@@ -1,5 +1,5 @@
 def solution(begin, target, words):
-    return dfs(begin)
+     dfs(begin)
 def dfs(cur_):
     # if difference 1
     # visited check for each dfs
