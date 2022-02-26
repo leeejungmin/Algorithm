@@ -1,0 +1,34 @@
+validation_scores = []
+
+k = 10
+bins = len(x_train_all) // k # (1) bins : 한 폴드에 들어갈 샘플의 개수
+
+for i in range(k) :
+
+  # (2) 검증 폴드 생성
+  start = i*bins
+  end = (i+1)*bins
+  val_fold = x_train_all[start:end]
+  val_target = y_train_all[start:end]
+
+  # (3) 훈련 폴드 생성
+  train_index = list(range(0,start)) + list(range(end,len(x_train_all)))
+  train_fold = x_train_all[train_index]
+  train_target = y_train_all[train_index]
+
+  # (4) 훈련폴드 및 검증폴드 전처리
+  train_mean = np.mean(train_fold, axis=0)
+  train_std = np.std(train_fold, axis=0)
+  train_fold_scaled = (train_fold - train_mean) / train_std
+  val_fold_scaled = (val_fold - train_mean) / train_std
+
+  lyr = SingleLayer(l2=0.001)
+  lyr.fit(train_fold_scaled, train_target,epochs=100)
+  score = lyr.score(val_fold_scaled, val_target)
+  
+  #(5) 폴드별 성능 기록
+  validation_scores.append(score)
+
+
+print(np.mean(validation_scores))
+ # 결과 : 0.9800000000000001
