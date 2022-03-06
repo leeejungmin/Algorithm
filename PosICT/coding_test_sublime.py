@@ -2,8 +2,10 @@ def solution(n,name,rating):
     cnt=0
     name_n=dict()
     rate = [0 for _ in range(n+1)]
+    live_m = [1 for _ in range(n+1) ]
     rate_d = dict()
-    queue = []
+    #queue = []
+    #make list memeber of dictionary
     for n,idx in enumerate(name):
         name_n[n] = idx
         
