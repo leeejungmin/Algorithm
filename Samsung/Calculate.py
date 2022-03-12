@@ -31,7 +31,7 @@ print(maximum)
 print(minimum)
 
 def dfss(sum,visited,n):
-    for i in range(sum(a.values)):
+    for i in range(num):
         #dfs,visited check
         for j in range(len(visited)):
             if visited[j]:
