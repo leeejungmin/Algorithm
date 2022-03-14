@@ -20,8 +20,8 @@ votes = [[int(y) for y in x.split()] for x in data[N+1:]]
 while len(cands) > 1:    
     for c in cands:  # 집계
         c.score = [v[0] for v in votes].count(c.number)
-##        if c.score >= 50 + (N is 2): 
-##            print(c.name); exit()  # 당선
+        if c.score >= 50 + (N is 2): 
+            print(c.name); exit()  # 당선
     print(min(cands).name)
     minvotes, maxvotes = min(cands).score, max(cands).score
     if minvotes == maxvotes: break  # 전부 동률    

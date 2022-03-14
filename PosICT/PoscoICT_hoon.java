@@ -79,6 +79,7 @@ public class PoscoICT {
 		for (int i = 0; i < votes.size(); i++) {
 			int targetVote = votes.get(i).get(depth) - 1;
 			
+			//두번째 투표
 			if (depth != 0) {
 				int 	beforeVote 	= votes.get(i).get(depth - 1) - 1;
 				boolean isContinued = false;
@@ -95,13 +96,13 @@ public class PoscoICT {
 			}
 			
 			Person targetPerson = persons.get(targetVote);
-			
+			//vote counting
 			if (targetPerson.isAlive) {
 				targetPerson.voteCnt++;
 			}
 		}
 	}
-	
+	//Make list Deadperson 
 	public static ArrayList<Person> setResult(ArrayList<Person> persons) {
 		int 				maxVote 	= -1;
 		int 				minVote 	= 1000;
@@ -115,7 +116,7 @@ public class PoscoICT {
 					minVote = person.voteCnt;
 				}
 			}
-		}
+		}-          
 		
 		for (Person person : persons) {
 			if (person.isAlive &&
