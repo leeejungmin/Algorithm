@@ -6,8 +6,8 @@ class Candidate:
         self.number = Candidate.cnt
         self.score = 0
 
-##    def __lt__(self, other):
-##        return self.score < other.score
+    def __lt__(self, other):
+        return self.score < other.score
 
 #input data for each variable
 data = '3\nJohn Doe\nJane Smith\nJane Austen\n1 2 3\n2 1 3\n2 3 1\n1 2 3\n3 1 2'
